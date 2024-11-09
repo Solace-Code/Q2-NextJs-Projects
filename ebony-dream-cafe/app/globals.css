@@ -1,0 +1,324 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.navbar-section-container {
+  grid-column: 1 / 3;
+  position: sticky;
+  top: 0; /* Ensure navbar stays at the top */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000;
+  width: 100%;
+  padding: 10px 20px; /* Reduced padding for better alignment */
+  display: flex;
+  justify-content: right; /* Align navbar links to the right */
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.navbar-container{
+  z-index: 10;
+  
+}
+
+.navbar-items{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  text-align: center;
+  padding-right: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #90A955;
+  gap: 20px;
+  z-index: 10;
+}
+
+.navbar-items a:hover{
+  text-decoration: underline;
+  color: #476b47;
+  z-index: 10;
+}
+
+.home{
+  grid-column: 1/3;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.home-video-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.background-video{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.home-text-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  gap: 5px;
+  z-index: -1;
+}
+
+.home-text-overlay h1{
+  font-size: 3em;
+  font-weight: bold;
+  color: #539452;
+  z-index: 2;
+}
+
+.home-text-overlay h2{
+  font-size: 2em;
+  font-weight: bold;
+  color: #90A955;
+}
+
+.home-text-overlay p{
+  font-size: 1.7em;
+  font-weight: bold;
+  padding-top: 10px;
+  color: white;
+}
+
+.about {
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.about-title{
+  display: flex;
+  flex-direction: column;
+  font-size: 3em;
+  font-weight: bold;
+  color: #90A955;
+  text-align: center;
+}
+
+.about-us{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.about-us p{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.about-2{
+  grid-column: 1/3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  overflow-y: auto;
+}
+
+.offer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-left: 10px;
+
+}
+
+.offer-title{
+  font-size: 3em;
+  font-weight: bold;
+  color: #90A955;
+
+}
+
+.offer-paragraph{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  font-size: 1.2em;
+  padding-bottom: 10px;
+}
+
+.coffee-varieties{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.coffee-varieties h1{
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #90A955;
+}
+
+.coffee-varieties p{
+  font-size: 1em;
+
+}
+
+.about-2-img{
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
+  object-fit: cover;
+}
+
+/* Membership Form Styling*/
+/* app/globals.css */
+
+.membership-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  place-items: center;
+  padding: 0; /* Ensure no extra padding */
+  margin: 0; /* Remove any extra margin */
+  background-image: url(../public/bg.jpg);
+  background-size: cover;
+  mask-repeat: no-repeat;
+  min-height: 100vh; /* Make sure container covers entire height */
+}
+
+.membership-form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.membership-form-title h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #539452;
+  
+}
+
+.membership-form-container {
+  display: grid;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.membership-form-container input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.membership-form-container .gender {
+  display: flex;
+  gap: 10px;
+  color: #90A955;
+}
+
+.gender div {
+  display: flex;
+  align-items: center;
+}
+
+.gender label {
+  margin-left: 6px;
+  font-size: 16px;
+}
+
+button.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #476b47;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.submit-button:hover {
+  background-color: #90A955;
+}
+
+.image-container{
+  max-width: 500px;
+  object-fit: cover;
+  border-radius: -50%;
+}
