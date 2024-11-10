@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
           <span className='navbar-link'>Home</span>
         </Link>
         <Link href='/about' passHref>
-          <span className='navbar-link'>About Us</span>
+          <span className='navbar-link'>About Me</span>
         </Link>
         <Link href='/contact' passHref>
           <span className='navbar-link'>Contact</span>
