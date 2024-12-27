@@ -1,9 +1,18 @@
 'use client'
-import { useState } from 'react';
+
+import { useState, FormEvent } from 'react';
 import { UserCircle, Send, ThumbsUp, Reply, MoreHorizontal } from 'lucide-react';
 
+interface Comment {
+  id: number;
+  author: string;
+  content: string;
+  likes: number;
+  timestamp: string;
+}
+
 const CommentSection = () => {
-  const [comments, setComments] = useState([
+  const [comments, setComments] = useState<Comment[]>([
     {
       id: 1,
       author: "John Doe",
@@ -19,13 +28,14 @@ const CommentSection = () => {
       timestamp: "1 hour ago"
     }
   ]);
+
   const [newComment, setNewComment] = useState("");
 
-  const handleCommentSubmit = (e) => {
+  const handleCommentSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newComment.trim()) return;
 
-    const comment = {
+    const comment: Comment = {
       id: comments.length + 1,
       author: "Current User",
       content: newComment,
@@ -40,7 +50,7 @@ const CommentSection = () => {
   return (
     <div className="w-full max-w-4xl mx-auto py-8">
       <h2 className="text-2xl font-bold mb-6">Comments ({comments.length})</h2>
-      
+
       {/* Comment Form */}
       <form onSubmit={handleCommentSubmit} className="mb-8">
         <div className="flex gap-4">
