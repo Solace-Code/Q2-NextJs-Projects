@@ -10,7 +10,6 @@ function page() {
     <div className='blog-page-container'>
         <section className='navbar-section'>
             <Navbar />
-            <div className="content-break-line"></div>
         </section>
         <section className='blog-page-section'>
            <div className='blog-page-content-container'>
