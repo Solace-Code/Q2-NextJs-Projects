@@ -396,6 +396,7 @@ html{
   width: 100%;
   align-items: center;
   padding: 2rem 0; /* Added padding for spacing */
+  padding-top: 120px;
   overflow-x: hidden;
 }
 
@@ -607,4 +608,158 @@ html{
 
 .blog-page-item-like, .blog-page-item-comments, .blog-page-item-3dots:hover{
   cursor: pointer;
+}
+
+/* Responsiveness work */
+
+/* Base responsive styles */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+  
+  .navbar-ul {
+    gap: 30px;
+  }
+
+  .blog-container {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .blog-thumbnail {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-section {
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .navbar-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar-ul {
+    gap: 20px;
+  }
+
+  .navbar-search-input {
+    width: 200px;
+  }
+
+  .home-section-container {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
+    gap: 30px;
+  }
+
+  .home-left {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  .home-right {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .home-right-heading h1 {
+    font-size: 2em;
+  }
+
+  .home-right-heading-2 h1 {
+    font-size: 1.8em;
+  }
+
+  .about-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .about-section-heading h1 {
+    font-size: 2em;
+  }
+
+  .about-section-content {
+    padding: 0 20px;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .social-content {
+    gap: 20px;
+  }
+
+  .blog-page-content-container {
+    width: 90%;
+    padding: 0 15px;
+  }
+
+  .blog-page-heading h1 {
+    font-size: 2em;
+  }
+
+  .blog-page-description p {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-li {
+    font-size: 1em;
+  }
+
+  .navbar-search-input {
+    width: 150px;
+  }
+
+  .home-right-heading h1 {
+    font-size: 1.5em;
+  }
+
+  .home-right-heading-2 h1 {
+    font-size: 1.3em;
+  }
+
+  .contact-section-heading h1,
+  .contact-section-heading-2 h1 {
+    font-size: 2em;
+  }
+
+  .contact-phone-icon,
+  .contact-email-icon,
+  .contact-location-icon,
+  .social-linkedin,
+  .social-twitter,
+  .social-instagram {
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+  }
+
+  .blog-page-heading h1 {
+    font-size: 1.5em;
+  }
+
+  .blog-page-description p {
+    font-size: 1em;
+  }
+
+  .blog-items {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .blog-items-right {
+    justify-content: flex-start;
+  }
 }
