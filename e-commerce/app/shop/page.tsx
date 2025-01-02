@@ -69,7 +69,7 @@ const ProductCard = ({ image, name, price, _id}: ProductCardProps) => {
 };
 
 const ShopPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('CPU');
+  const [selectedCategory, setSelectedCategory] = useState('GraphicCard');
 
   return (
     <>
