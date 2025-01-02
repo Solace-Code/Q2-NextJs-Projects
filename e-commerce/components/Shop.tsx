@@ -1,4 +1,4 @@
-
+"use client";
 import React, { useEffect, useState, useCallback } from 'react';
 import { client } from '../sanity/lib/client';
 
