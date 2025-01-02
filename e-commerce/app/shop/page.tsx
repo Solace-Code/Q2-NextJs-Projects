@@ -15,7 +15,7 @@ interface ProductCardProps {
   _id: string; // Added _id prop
 }
 
-const ProductCard = ({ image, name, price, _id }: ProductCardProps) => {
+const ProductCard = ({ image, name, price, _id}: ProductCardProps) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
@@ -92,6 +92,7 @@ const ShopPage = () => {
                     {products.map((product) => (
                       <ProductCard
                         key={product._id}
+                        _id={product._id}
                         image={product.image}
                         name={product.name}
                         price={product.price}
