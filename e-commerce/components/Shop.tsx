@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState, useCallback } from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import { client } from '../sanity/lib/client';
 
 interface ShopNavigationProps {
@@ -10,25 +10,29 @@ interface ShopNavigationProps {
 export const ShopNavigation = ({ onCategoryChange, selectedCategory }: ShopNavigationProps) => {
   const [categories, setCategories] = useState<string[]>([]);
 
-  // useCallback ensures that this function is not recreated on every render
-  const fetchCategories = useCallback(async () => {
-    const result = await client.fetch(`
-      *[_type == "category"] {
-        name
-      }
-    `);
-    const categoryNames = result.map((cat: { name: string }) => cat.name);
-    setCategories(categoryNames);
-
-    // Set initial category if none selected
-    if (!selectedCategory && categoryNames.length > 0) {
-      onCategoryChange(categoryNames[0]);  // Call onCategoryChange to update the selectedCategory in the parent
-    }
-  }, [selectedCategory, onCategoryChange]);
-
   useEffect(() => {
-    fetchCategories(); // Run the fetchCategories function
-  }, [fetchCategories]); // Add fetchCategories to the dependency array
+    // Fetch categories from Sanity
+    const fetchCategories = async () => {
+      try {
+        const result = await client.fetch(`
+          *[_type == "category"] {
+            name
+          }
+        `);
+        const categoryNames = result.map((cat: { name: string }) => cat.name);
+        setCategories(categoryNames);
+        
+        // Set initial category if none selected
+        if (!selectedCategory && categoryNames.length > 0) {
+          onCategoryChange(categoryNames[0]);
+        }
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, [onCategoryChange, selectedCategory]);  // Add dependencies to re-run if necessary
 
   return (
     <nav className="mb-8">
@@ -36,7 +40,7 @@ export const ShopNavigation = ({ onCategoryChange, selectedCategory }: ShopNavig
         {categories.map((category) => (
           <li key={category}>
             <button
-              onClick={() => onCategoryChange(category)} // Call onCategoryChange to update the category
+              onClick={() => onCategoryChange(category)}
               className={`px-4 py-2 rounded-lg transition-colors ${
                 selectedCategory === category
                   ? 'bg-blue-500 text-white'
